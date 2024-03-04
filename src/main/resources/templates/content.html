@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Spring</title>
+</head>
+<body th:style="'background-color:' + ${backgroundColor}">
+    <div style="text-align:center" th:utext="${content}">
+    </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+---
+applications:
+- name: hellospring
+  memory: 512M
+  instances: 2
+  buildpack: java_buildpack_offline
+  health-check-type: http
+  health-check-http-endpoint: /livez
+  readiness-health-check-type: http
+  readiness-health-check-http-endpoint: /readyz
+  env:
+    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 17.+ }, memory_calculator: { stack_threads: 25 }}'
