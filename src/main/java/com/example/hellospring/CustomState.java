@@ -12,17 +12,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class CustomState extends ReadinessStateHealthIndicator {
 
-    @Autowired
-    private FailReadyUntil failReadyUntil;
+	@Autowired
+	private FailReadyUntil failReadyUntil;
 
-    public CustomState(ApplicationAvailability availability) {
-        super(availability);
-      }
+	public CustomState(ApplicationAvailability availability) {
+		super(availability);
+	}
 
-    @Override
-    protected AvailabilityState getState(ApplicationAvailability applicationAvailability) {
-        return LocalDateTime.now().isBefore(failReadyUntil.get())
-            ? ReadinessState.REFUSING_TRAFFIC
-            : ReadinessState.ACCEPTING_TRAFFIC;
-    }
+	@Override
+	protected AvailabilityState getState(ApplicationAvailability applicationAvailability) {
+		return LocalDateTime.now().isBefore(failReadyUntil.get()) ? ReadinessState.REFUSING_TRAFFIC
+				: ReadinessState.ACCEPTING_TRAFFIC;
+	}
+
 }

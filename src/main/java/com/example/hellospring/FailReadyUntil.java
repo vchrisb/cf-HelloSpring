@@ -6,17 +6,19 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class FailReadyUntil {
-    private volatile LocalDateTime failReadyUntil = LocalDateTime.now();
 
-    LocalDateTime get(){
-        return failReadyUntil;
-    }
-    
-    void set() {
-        failReadyUntil = LocalDateTime.now().plusMinutes(1);
-    }
+	private volatile LocalDateTime failReadyUntil = LocalDateTime.now();
 
-    void clear() {
-        failReadyUntil = LocalDateTime.now();
-    }
+	LocalDateTime get() {
+		return failReadyUntil;
+	}
+
+	void set() {
+		failReadyUntil = LocalDateTime.now().plusMinutes(1);
+	}
+
+	void clear() {
+		failReadyUntil = LocalDateTime.now();
+	}
+
 }
